@@ -88,3 +88,28 @@ en el archivo webpack.config.js escribimos:
 
 -recordemos que se identifique el cambio en la optimizacion, ademas,
 -html se usa con webpack para que esta misma genere un archivo html optimizado en nuestra produccion
+
+
+
+----------------------------------------------------------------------------------------------------
+
+CSS con webpack
+
+ -npm i mini-css-extract-plugin css-loader -D
+
+-en el archivo webpack.config.js  
+  -añadimos: const MiniCssExtractplugin = require('mini-css-extract-plugin'); //al comienzo
+  -creamos una nueva regla: 
+          {
+            test: /\.css|.styl$/i,
+            use:[MiniCssExtractplugin.loader, 
+            'css-loader',
+            'stylus-loader'
+            ],
+          }
+  -añadimos el plugin:
+    - new MiniCssExtractplugin(),
+
+-npm run dev //(notese que se crea el archivo .css en dist)
+ //css y webpack con stylus(preprocesador)
+npm install stylus stylus-loader -D  
