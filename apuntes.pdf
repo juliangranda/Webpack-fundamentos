@@ -141,3 +141,29 @@ y a su vez optimizar nuestro codigo en produccion
 Es importante las propiedades from y to
 From ⇒ que recurso (archivo o directorio) deseamos copiar al directorio final
 To ⇒ en que ruta dentro de la carpeta final terminara los recursos
+--------------------------------------------------------------------------------------------------
+
+loader de imagenes
+se usa para optimizar nuestras imagenes en la aplicacion
+
+-archivo webpack.config.js, nueva regla para las imagenes:
+            {
+            test: /\.png/,
+            type: 'asset/resource'
+          }
+-se crean las constantes que van a tener el path de nuestras imagenes
+-modificamos en el body o template la parte que vamos a cambiar, es decir lo que es una ruta o path por las constantes creadas
+para que sea mas amigable de entender
+
+-ejecutamos npm run dev
+-luego en la carpeta dist notamos unas imagenes con unos nombres muy raros pero cuyas imagenes estan optimizadas
+
+
+-------------------------------------------------------------------------------------------------------------
+fuentes loaders
+
+@font-face  arreglado de las fuentes que se van a optimizar
+
+npm install url-loader file-loader -D
+
+configuracion de la regla nueva en el archivo webpack.config.js

@@ -12,6 +12,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'), //dirname, es el archivo o carpeta del proyecto - dist: es un estandar para el nombre
         //filename: le pone el nombre a nuestro archivo final
         filename: 'main.js',
+        assetModuleFilename: 'assets/images/[hash][ext][query]'
     },
     //extensiones
     resolve: {
@@ -35,6 +36,24 @@ module.exports = {
             'css-loader',
             'stylus-loader'
             ],
+          },
+          {
+            test: /\.png/,
+            type: 'asset/resource'
+          },
+          {
+            test: /\.(woff|woff2)$/,
+            use:{
+              loader:'url-loader',
+              options:{
+                limit:10000,
+                mimetype:"application/font-woff",
+                name:"[name].[ext]",
+                outputPath: "./assets/fonts/",
+                publicPath:"./assets/fonts/",
+                esModule:false,
+              }
+            }
           }
         ]
       },
