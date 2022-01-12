@@ -191,3 +191,11 @@ Para que no haya conflictos con la cache una vez que tengamos nuestro proyecto e
           new TerserPlugin(),
         ]
       }
+
+Debes utilizar los siguientes paquetes
+css-minimizer-webpack-plugin ⇒ Nos ayuda a comprimir nuestros archivos finales CSS
+terser-webpack-plugin ⇒ Permite minificar de una mejor forma
+
+Cuando nombremos en la configuración de webpack es importante usar [contenthash] para evitar problemas con la cache, 
+lo anterior se debe a cuando actualicemos nuestra app por una nueva version ,sino cambiamos el nombre con los hashes el usuario
+no vera el cambio o no sentira el cambio en la aplicacion
