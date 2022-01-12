@@ -113,3 +113,27 @@ CSS con webpack
 -npm run dev //(notese que se crea el archivo .css en dist)
  //css y webpack con stylus(preprocesador)
 npm install stylus stylus-loader -D  
+
+----------------------------------------------------------------------------------------------
+
+copy plugin con webpack
+se utiliza para mover archivos, imagenes e incluso una carpeta completa de desarrollo a produccion para no complicarnos tanto,
+y a su vez optimizar nuestro codigo en produccion
+
+- npm i copy-webpack-plugin -D
+-carpeta webpack.config.js:
+    const CopyPlugin = require('copy-webpack-plugin');
+
+    new CopyPlugin({
+            patterns: [
+              {
+                from: path.resolve(__dirname, "src", "assets/images"),
+                to: "assets/images"
+              }
+            ]
+          }),
+
+-se organiza la carpeta que se va a mover , en este caso es assets/images
+-ejecutamos npm run dev
+-verificamos la terminal que se vea que si movio o copio dicha carpeta y que este ok(verde)
+-verificamos que veamos la carpeta assets/images en dist

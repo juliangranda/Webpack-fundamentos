@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractplugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 //añadir todas las configuraciones
 module.exports = {
     //punto de entrada de la aplicacion, elemento inicial
@@ -44,6 +45,14 @@ module.exports = {
               filename: './index.html'
           }),
           new MiniCssExtractplugin(),
+          new CopyPlugin({
+            patterns: [
+              {
+                from: path.resolve(__dirname, "src", "assets/images"),
+                to: "assets/images"
+              }
+            ]
+          }),
       ]
 }
 
