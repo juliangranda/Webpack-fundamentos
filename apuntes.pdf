@@ -167,3 +167,27 @@ fuentes loaders
 npm install url-loader file-loader -D
 
 configuracion de la regla nueva en el archivo webpack.config.js
+
+
+----------------------------------------------------------------------
+optimizacion: haches, compresion y minificacion de archivos
+
+- npm install css-minimizer-webpack-plugin terser-webpack-plugin -D
+
+¿Por qué es importante usar Hashes en nuestros archivos?
+Los recursos que se guardan en memoria cache suceden cuando el navegador entra a un sitio por primera vez detecta los recursos y los guarda. Por ello la siguiente vez sera mucho más rápido porque estarán en memoria
+La desventaja esta cuando sacamos una nueva versión, porque tendrán un mismo nombre evitando que se descargue los nuevos cambios, por lo tanto, el usuario no recibirá los nuevos cambios
+Para que no haya conflictos con la cache una vez que tengamos nuestro proyecto en producción es importante darles un hash para cada nueva versión
+
+-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+-const TerserPlugin = require('terser-webpack-plugin');
+-fijarse en: [name].[contenthash], estos son hasher , los encargados de optimizar aun mas nuestro codigo
+-archivo webpack.config.js:
+  añadimos una nueva parte llamada optimizacion:
+          optimization:{
+        minimize: true,
+        minimizer:[
+          new CssMinimizerPlugin(),
+          new TerserPlugin(),
+        ]
+      }

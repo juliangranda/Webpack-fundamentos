@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractplugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 //añadir todas las configuraciones
 module.exports = {
     //punto de entrada de la aplicacion, elemento inicial
@@ -11,7 +13,7 @@ module.exports = {
         //path es la carpeta donde se guardaran nuestros archivos
         path: path.resolve(__dirname, 'dist'), //dirname, es el archivo o carpeta del proyecto - dist: es un estandar para el nombre
         //filename: le pone el nombre a nuestro archivo final
-        filename: 'main.js',
+        filename: '[name].[contenthash].js',
         assetModuleFilename: 'assets/images/[hash][ext][query]'
     },
     //extensiones
@@ -48,7 +50,7 @@ module.exports = {
               options:{
                 limit:10000,
                 mimetype:"application/font-woff",
-                name:"[name].[ext]",
+                name:"[name].[contenthash].[ext]",
                 outputPath: "./assets/fonts/",
                 publicPath:"./assets/fonts/",
                 esModule:false,
@@ -63,7 +65,9 @@ module.exports = {
               template:'./public/index.html',
               filename: './index.html'
           }),
-          new MiniCssExtractplugin(),
+          new MiniCssExtractplugin({
+            filename: 'assets/[name].[contenthash].css'
+          }),
           new CopyPlugin({
             patterns: [
               {
@@ -72,7 +76,14 @@ module.exports = {
               }
             ]
           }),
-      ]
+      ],
+      optimization:{
+        minimize: true,
+        minimizer:[
+          new CssMinimizerPlugin(),
+          new TerserPlugin(),
+        ]
+      }
 }
 
 //ejecucion de la configuracion de webpack
