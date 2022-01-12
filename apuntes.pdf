@@ -199,3 +199,20 @@ terser-webpack-plugin ⇒ Permite minificar de una mejor forma
 Cuando nombremos en la configuración de webpack es importante usar [contenthash] para evitar problemas con la cache, 
 lo anterior se debe a cuando actualicemos nuestra app por una nueva version ,sino cambiamos el nombre con los hashes el usuario
 no vera el cambio o no sentira el cambio en la aplicacion
+
+-------------------------------------------------------------------------------------------------------------------------
+Webpack Alias
+<h4>Apuntes</h4>
+Alias ⇒ nos permiten otorgar nombres paths específicos evitando los paths largos
+Para crear un alias debes agregar la siguiente configuración a webpack
+module.exports = {
+	...
+	resolve: {
+		...
+    alias: {
+      '@nombreDeAlias': path.resolve(__dirname, 'src/<directorio>'),
+    },
+	}
+}
+Puedes usarlo en los imports de la siguiente manera
+import modulo from "@ejemplo/archivo.js";
