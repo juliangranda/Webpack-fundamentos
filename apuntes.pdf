@@ -65,3 +65,26 @@ module: {
 }
 
 ---------------------------------------------------------------------------------
+
+HTML con webpack
+
+-npm install html-webpack-plugin -D
+
+en el archivo webpack.config.js escribimos:
+  -const HtmlWebpackPlugin = require('html-webpack-plugin')        //(esto va al principio)
+
+  //se crea una seccion de plugin despues de modules
+  -escribimos siguiente codigo en webpack.config.js:
+
+      plugins: [
+        new HtmlWebpackPlugin({ // CONFIGURACIÓN DEL PLUGIN
+            inject: true, // INYECTA EL BUNDLE AL TEMPLATE HTML
+            template: './public/index.html', // LA RUTA AL TEMPLATE HTML
+            filename: './index.html' // NOMBRE FINAL DEL ARCHIVO
+        })
+    ]
+
+-ejecutamos npm run build o npm run dev segun el modo en el que estemos 
+
+-recordemos que se identifique el cambio en la optimizacion, ademas,
+-html se usa con webpack para que esta misma genere un archivo html optimizado en nuestra produccion

@@ -1,5 +1,5 @@
 const path = require('path');
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 //añadir todas las configuraciones
 module.exports = {
     //punto de entrada de la aplicacion, elemento inicial
@@ -28,7 +28,14 @@ module.exports = {
             exclude: /node_modules/
           }
         ]
-      }
+      },
+      plugins:[
+          new HtmlWebpackPlugin({
+              inject: true,
+              template:'./public/index.html',
+              filename: './index.html'
+          })
+      ]
 }
 
 //ejecucion de la configuracion de webpack
