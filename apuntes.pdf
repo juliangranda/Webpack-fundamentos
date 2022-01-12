@@ -137,3 +137,7 @@ y a su vez optimizar nuestro codigo en produccion
 -ejecutamos npm run dev
 -verificamos la terminal que se vea que si movio o copio dicha carpeta y que este ok(verde)
 -verificamos que veamos la carpeta assets/images en dist
+
+Es importante las propiedades from y to
+From ⇒ que recurso (archivo o directorio) deseamos copiar al directorio final
+To ⇒ en que ruta dentro de la carpeta final terminara los recursos
