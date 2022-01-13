@@ -249,3 +249,27 @@ Toda la configuración se podrá acceder desde process.env
 
 en este caso process.env.API se esta usando en la carpeta util en el archivo getdata, el cual accede a la variable de entorno 
 llamada API que almacena el api que se esta usando en la aplicacion
+
+---------------------------------------------------------------------------------------------------------------------------------
+webpack en modo produccion 
+
+en este caso se instala:
+
+npm install clean-webpack-plugin -D
+
+la funcion de esta dependencia es hacer un compilado de lo que se tiene y asu vez realizar una limpieza para eliminar
+lo que esta copiado dos veces, o aquellos archivos que quedaron mal ubicados anteriormente ,etc, basicamente 
+una limpieza para que cuando llegue a produccion este limpio y bien estructurado
+
+luego, en el archivo webpack.config.js en el modo de produccion añadimos:
+ -const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+ -en los plugins: new CleanWebpackPlugin(),
+
+ y asi es como tenemos lista produccion sin ningun archivo deseamos
+ npm run build 
+
+ y listo , verificamos que se hallan eliminado los archivos de sobra en el modo produccion , siqueremos pasar al modo desarrollo 
+ y generar de nuevo esos archivos que sobran entonces:
+ npm run dev
+
+ y asi sucesivamente para ir preparando nuestra forma de trabajo al momento de usar webpack
