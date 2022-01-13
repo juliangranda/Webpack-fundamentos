@@ -273,3 +273,6 @@ luego, en el archivo webpack.config.js en el modo de produccion añadimos:
  npm run dev
 
  y asi sucesivamente para ir preparando nuestra forma de trabajo al momento de usar webpack
+
+
+ -------------------------------------------------------------------------------------------------------------------------------------

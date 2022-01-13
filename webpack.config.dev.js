@@ -17,6 +17,8 @@ module.exports = {
     },
     //mode: dice que es la configuracion especifica para el modo de desarrollo
     mode: 'development',
+    //modo watch: para estar viendo los cambios que se estan produciendo dentro del proyecto
+    watch: true,
     //extensiones
     resolve: {
         extensions: ['.js'],
