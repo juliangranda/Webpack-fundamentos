@@ -1,0 +1,20 @@
+instalacion web pack
+0)crear carpeta src, y archivo index.js
+1)npm i webpack webpack-cli -D   (-D: significa que es una dependencia de desarrollo)
+
+Y luego ejecutamos webpack
+npx lo que hace es ejecutar paquetes directamente de npm, este viene instalado de npm
+
+2)npx webpack
+2.1) se crea por default una carpeta llamada "dist" con el codigo optimizado de la aplicacion
+3) npx webpack --mode production
+3.1)npx webpack --mode development
+
+
+notas:al momento de ejecutar el paso 2 se crea una carpeta llamada dist donde va a estar el codigo de forma optimizada, 
+y al ejecutar el paso 3 esta carpeta va a cambiar de acuerdo al modo en el que se encuentra.
+
+nota: Antes de ejectuar webpack debe de existir un archivo o carpeta "src", y dentro de esta un archivo llamado "index.js", 
+que es aquel que tendra la logica js del proyecto
+
+-------------------------------------------------------------------------------------------------------------------------------
